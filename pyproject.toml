@@ -1,0 +1,24 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "xianyu-buyer-mcp"
+version = "0.1.0"
+description = "闲鱼买家询价 MCP Server — 搜索商品、批量询价、自动回收回复"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.11"
+dependencies = [
+    "mcp[cli]>=1.0.0",
+    "playwright>=1.44.0",
+    "playwright-stealth>=2.0.2",
+    "python-dotenv>=1.0.0",
+]
+
+[project.scripts]
+xianyu-buyer-mcp = "server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["xianyu_buyer"]
+include = ["server.py"]
